@@ -25,7 +25,7 @@
 (defn upload! []
   (when-not (fs/existsSync config-file)
     (println (chalk/red "upload.edn not found."))
-    (js/procexx.exit 1))
+    (js/process.exit 1))
   (let [content (fs/readFileSync config-file "utf8")
         config (read-string content)
         host (:host config)]
