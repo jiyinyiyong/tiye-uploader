@@ -6,6 +6,8 @@ Tiye uploader
 
 Uploader script to tiye.me . Read `upload.edn` as config.
 
+![](https://img.shields.io/npm/v/@tiye/uploader.svg?style=flat-square)
+
 ```bash
 yarn global add @tiye/uploader
 ```
