@@ -1,6 +1,6 @@
 {
   "name": "@tiye/uploader",
-  "version": "0.1.0-a2",
+  "version": "0.1.0",
   "scripts": {
     "watch": "yarn shadow-cljs watch app",
     "release": "yarn shadow-cljs release app"
