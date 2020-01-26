@@ -6,10 +6,9 @@
             ["chalk" :as chalk]
             [cljs.reader :refer [read-string]]
             [clojure.string :as string]
-            [lilac.core :refer [validate-lilac string+ map+ vector+]])
+            [lilac.core :refer [validate-lilac string+ map+ vector+]]
+            [cirru-edn.core :as cirru-edn])
   (:require-macros [clojure.core.strint :refer [<<]]))
-
-(def config-file "upload.edn")
 
 (def lilac-config+
   (map+
@@ -18,12 +17,18 @@
               (map+ {:from (string+ {:nonblank? true}), :to (string+ {:nonblank? true})}))}
    {:restriced-keys #{:host :uploads}}))
 
+(defn load-config-file! []
+  (cond
+    (fs/existsSync "upload.edn")
+      (do (println "loading upload.edn") (read-string (fs/readFileSync "upload.edn" "utf8")))
+    (fs/existsSync "upload.cirru")
+      (do
+       (println "loading upload.cirru")
+       (cirru-edn/parse (fs/readFileSync "upload.cirru" "utf8")))
+    :else (do (println (chalk/red "Found no config file!")) (.exit js/process))))
+
 (defn upload! []
-  (when-not (fs/existsSync config-file)
-    (println (chalk/red "upload.edn not found."))
-    (js/process.exit 1))
-  (let [content (fs/readFileSync config-file "utf8")
-        config (read-string content)
+  (let [config (load-config-file!)
         host (:host config)
         check-result (validate-lilac config lilac-config+)]
     (if (:ok? check-result)
