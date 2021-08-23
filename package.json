@@ -16,7 +16,7 @@
   "devDependencies": {
     "shadow-cljs": "^2.8.83",
     "source-map-support": "^0.5.16",
-    "ws": "^7.2.1"
+    "ws": "^7.4.6"
   },
   "dependencies": {
     "chalk": "^3.0.0"
