@@ -1,10 +1,16 @@
 
 .gitattributes
 .gitignore
-.nrepl-port
-.shadow-cljs/
-calcit.edn
-shadow-cljs.edn
+calcit.cirru
+compact.cirru
 src/
-target/
 yarn.lock
+
+main.js
+js-out/
+
+/build.js
+
+.*.cirru
+
+/.github/
