@@ -1,7 +1,9 @@
 {
   "name": "@tiye/uploader",
   "version": "0.1.1",
-  "scripts": {},
+  "scripts": {
+    "bundle-main": "yarn esbuild main.js --outfile=dist/server.js --bundle --platform=node"
+  },
   "bin": {
     "tiye-up": "./dist/server.js"
   },
@@ -10,10 +12,10 @@
   "author": "jiyinyiyong <jiyinyiyong@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "estrella": "^1.4.1"
+    "esbuild": "^0.12.26"
   },
   "dependencies": {
-    "@calcit/procs": "^0.4.20",
-    "chalk": "^3.0.0"
+    "@calcit/procs": "^0.4.31",
+    "chalk": "^4.1.2"
   }
 }
