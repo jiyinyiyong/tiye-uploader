@@ -47,7 +47,7 @@ jobs:
     - name: "compiles to js"
       run: >
         cr --emit-js --once
-        && yarn && node ./build.js
+        && yarn && yarn bundle-main
 
     - name: publish
       run: npm publish
