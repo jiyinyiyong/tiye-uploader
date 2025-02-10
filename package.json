@@ -12,7 +12,7 @@
   "author": "jiyinyiyong <jiyinyiyong@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.12.26"
+    "esbuild": "^0.25.0"
   },
   "dependencies": {
     "@calcit/procs": "^0.4.31",
